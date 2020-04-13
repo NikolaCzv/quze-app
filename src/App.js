@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import { Divider } from "semantic-ui-react";
-import Search from "./components/Search";
-import List from "./components/List";
+import Navbar from "./components/Navbar";
+import List from "./containers/List";
 
 class App extends React.Component {
   state = {
-    courses: []
+    courses: [],
+    searchCourse: ''
   }
 
   componentDidMount(){
@@ -14,18 +15,31 @@ class App extends React.Component {
     .then(resp => resp.json())
     .then(data => {
       this.setState({
-        courses: [...data]
+        courses: data
       })
     })
   }
 
+  handleSearch = (event) => {
+    this.setState({
+      searchCourse: event.target.value
+    })
+  }
+
   render(){
+    const courses = this.state.courses.filter(course => course.title.toLowerCase().includes(this.state.searchCourse))
+
     return (
       <div className="App">
-        <Search />
+        <Navbar 
+          courses={courses}
+          handleSearch={this.handleSearch}
+        />
         <Divider hidden/>
         <Divider hidden/>
-        <List courses={this.state.courses}/>
+        <List 
+          courses={courses}
+        />
       </div>
     );
   }
