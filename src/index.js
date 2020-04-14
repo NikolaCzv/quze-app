@@ -6,12 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
 import { Router, Route, Switch} from "react-router-dom";
 import history from "./utils/history";
+import viewPage from "./containers/ViewPage"
 
 ReactDOM.render(
   <>
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={app} />
+        <Route exact path="/course/:id" component={viewPage} />
       </Switch>
     </Router>
   </>,
