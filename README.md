@@ -1,3 +1,13 @@
+First task for Quze internship.
+
+To start the app, you will need to fork and clone to you machine, and after that enter the files and run npm start. You will maybe need "Moesif" to help you fetch the api.
+
+I used React.js, Semantic ui, Styled components, React Router.
+
+It took me about 5 hours to complete the task.
+
+It is a simple app, user can see courses which I fetched and renderd from provided api. User can also filter the courses by level and also search by title. User can see a page from every single course, and also can visit the course on it's own website.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

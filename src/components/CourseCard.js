@@ -8,6 +8,11 @@ import {
     Rating
 } from "semantic-ui-react";
 
+const divStyles = {
+    'width': '100%',
+    'height': '80px',
+}
+
 const CourseCard = props => {
     const { course } = props
 
@@ -24,9 +29,8 @@ const CourseCard = props => {
                 :
                     <Image src={noImage} style={styles} />
                 }
-                <Card.Content>
+                <div style={divStyles}>
                     <h4>{course.title}</h4>
-                <Card.Meta>
                     {course.providerRatings ? 
                     <span>Rating:
                         <Rating
@@ -38,8 +42,7 @@ const CourseCard = props => {
                     :
                     <span>Not Rated</span>
                     }
-                </Card.Meta>
-                </Card.Content>
+                </div>
                 <Card.Content extra>
                     <Button 
                         size='mini'
